@@ -1,0 +1,94 @@
+/*suppression des marges*/
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/*background*/
+html{
+    min-height: 100vh;
+
+    background-color:rgb(27, 27, 27); 
+    background-repeat: no-repeat;
+}
+
+/*image titre*/
+header img{
+    height: 100px;
+    width: auto;
+
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+
+/*titre*/
+header p{
+    height: 100px;
+    width: auto;
+
+    text-align: center;
+
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(79, 80, 82);
+}
+
+/*main background*/
+main{
+    min-height: 100vh;
+
+    background: linear-gradient(to top left, #04156C, #58003A);
+    background-repeat: no-repeat;
+
+    margin-top: 5%;
+}
+
+/* Style du conteneur principal */
+.gallery {
+  display: grid;
+  /* Crée 3 colonnes de taille égale (ou s'adapte sur mobile) */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px; /* Espace entre les éléments */
+  padding: 20px;
+  color: #fff; /* Texte blanc */
+  text-align: center;
+}
+
+/* Chaque carte d'image + texte */
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Conteneur d'image pour garder un ratio uniforme */
+.img-container {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Ratio de l'image (ex: 4:3) */
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+/* Style des images */
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Remplit le cadre sans déformer l'image */
+  display: block;
+  border-radius: 4px; /* Optionnel : bords légèrement arrondis */
+}
+
+/* Style des dates */
+.date {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.year {
+  font-size: 0.85rem;
+  color: #aaa; /* Gris clair pour l'année */
+  margin-top: 4px;
+}
