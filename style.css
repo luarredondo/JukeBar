@@ -87,8 +87,35 @@ main{
   letter-spacing: 1px;
 }
 
-.year {
+.soiree {
   font-size: 0.85rem;
   color: #aaa; /* Gris clair pour l'année */
   margin-top: 4px;
 }
+
+
+.href-footer{
+    display: block;
+    width: 100%;
+} 
+
+/*image du footer*/
+footer img{
+    height: 50px;
+    width: auto;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+
+/*adresse du bar en footer*/
+.adresse{
+font-size: 1rem;
+  color: #aaa; /* Gris clair pour l'année */
+
+  text-align: center;
+    margin-top: 50px;
+}
+
