@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>JukeBar Portefolio</title>
-        <link rel="icon" href="asset/logo.png">
-        <!-- Lier le fichier CSS externe -->
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JukeBar Soirée Ricard</title>
+    <link rel="icon" href="asset/logo.png">
+    
+    <!-- Lier le fichier CSS externe -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Script JS chargé avec defer -->
+    <script src="script.js" defer></script>
+</head>
+<body>
 
     <header>
         <div>
@@ -16,85 +21,97 @@
             </a>
         </div>
     </header>
+
     <main>
+        <!-- Galerie d'images -->
         <div class="gallery">
-            <!-- Élément 1 -->
             <div class="gallery-item">
                 <div class="img-container">
-                    <img src="photo/ricard/1.png" alt="Soirée du 26/09/26">
+                    <img src="photo/ricard/1.png" class="gallery-img" alt="Soirée du 26/09/26">
                 </div>
             </div>
 
-            <!-- Élément 2 -->
             <div class="gallery-item">
                 <div class="img-container">
-                    <img src="photo/ricard/2.png" alt="Soirée du 26/09/26">
+                    <img src="photo/ricard/2.png" class="gallery-img" alt="Soirée du 26/09/26">
                 </div>
             </div>
 
-            <!-- Élément 3 -->
             <div class="gallery-item">
                 <div class="img-container">
-                    <img src="photo/ricard/3.png" alt="Soirée du 26/09/26">
-                </div>
-            </div>
-                <!-- Élément 4 -->
-                <div class="gallery-item">
-                    <div class="img-container">
-                        <img src="photo/ricard/4.png" alt="Soirée du 26/09/26">
-                    </div>
-                </div>
-
-                <!-- Élément 5 -->
-                <div class="gallery-item">
-                    <div class="img-container">
-                        <img src="photo/ricard/5.png" alt="Soirée du 26/09/26">
-                    </div>
-                </div>
-
-                <!-- Élément 6 -->
-                <div class="gallery-item">
-                    <div class="img-container">
-                        <img src="photo/ricard/6.png" alt="Soirée du 26/09/26">
-                    </div>
-                </div>
-
-
-            <!-- Élément 7 -->
-            <div class="gallery-item">
-                <div class="img-container">
-                    <img src="photo/ricard/7.png" alt="Soirée du 26/09/26">
+                    <img src="photo/ricard/3.png" class="gallery-img" alt="Soirée du 26/09/26">
                 </div>
             </div>
 
-            <!-- Élément 8 -->
             <div class="gallery-item">
                 <div class="img-container">
-                    <img src="photo/ricard/8.png" alt="Soirée du 26/09/26">
+                    <img src="photo/ricard/4.png" class="gallery-img" alt="Soirée du 26/09/26">
                 </div>
             </div>
-                <!-- Élément 9 -->
-                <div class="gallery-item">
-                    <div class="img-container">
-                        <img src="photo/ricard/9.png" alt="Soirée du 26/09/26">
-                    </div>
+
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="photo/ricard/5.png" class="gallery-img" alt="Soirée du 26/09/26">
                 </div>
-                <!-- Élément 10 -->
-                <div class="gallery-item">
-                    <div class="img-container">
-                        <img src="photo/ricard/10.png" alt="Soirée du 26/09/26">
-                    </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="photo/ricard/6.png" class="gallery-img" alt="Soirée du 26/09/26">
                 </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="photo/ricard/7.png" class="gallery-img" alt="Soirée du 26/09/26">
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="photo/ricard/8.png" class="gallery-img" alt="Soirée du 26/09/26">
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="photo/ricard/9.png" class="gallery-img" alt="Soirée du 26/09/26">
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="photo/ricard/10.png" class="gallery-img" alt="Soirée du 26/09/26">
+                </div>
+            </div>
         </div>
+
+        <!-- Boîte modale unique pour le zoom -->
+        <dialog id="lightbox">
+            <div class="lightbox-content">
+                <button id="close-btn" class="close-btn">&times;</button>
+                <button id="prev-btn" class="nav-btn prev-btn">&#10094;</button>
+                
+                <img id="lightbox-img" src="" alt="Photo agrandie">
+                
+                <button id="next-btn" class="nav-btn next-btn">&#10095;</button>
+            </div>
+        </dialog>
+
         <footer>
             <div class="href-footer">
                 <a href="https://www.instagram.com/lejukebar/">
-                    <img href="https://www.instagram.com/lejukebar/ alt="instagram" src="asset/insta.png">
+                    <img alt="instagram" src="asset/insta.png">
                 </a>
             </div>
-            <div class="adresse">258 rue de Bourgogne Orléans</div>
+            <div class="adresse">
+                258 rue de Bourgogne Orléans
+            </div>
+            <div class="adresse">
+                lejukebar
+            </div>
         </footer>
     </main>
 
-    </body>
+</body>
 </html>
