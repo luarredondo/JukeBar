@@ -1,3 +1,16 @@
+/* Masque la barre de défilement pour Chrome, Safari et Opera */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Masque la barre de défilement pour Firefox et IE/Edge */
+html, body {
+  -ms-overflow-style: none;  /* IE et Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
 /*suppression des marges*/
 body {
   margin: 0;
@@ -13,26 +26,23 @@ html{
     background-repeat: no-repeat;
 }
 
-/*image titre*/
-header img{
-    height: 100px;
-    width: auto;
-
-    display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
+/* Le header est le conteneur parent qui va tout centrer */
+header {
+  text-align: center;
+  padding: 20px 0;
 }
 
-/*titre*/
-header p{
-    height: 100px;
-    width: auto;
+/* Le lien entoure le logo proprement */
+header a {
+  display: inline-block;
+}
 
-    text-align: center;
 
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgb(79, 80, 82);
+/* La taille du logo (ajuste la largeur selon ton envie, ex: 150px) */
+.logo-accueil {
+  display: block;
+  width: 150px; /* Ou la taille souhaitée pour ton logo */
+  height: auto;
 }
 
 /*main background*/
@@ -96,7 +106,7 @@ main{
 
 .soiree {
   font-size: 0.85rem;
-  color: #aaa; /* Gris clair pour l'année */
+  color: #aaa;
   margin-top: 4px;
 }
 
@@ -117,13 +127,34 @@ footer img{
     margin-top: 5%;
 }
 
+/*centre le footer*/
+.footer-bandeau {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;  /* Centre l'élément à l'intérieur */
+}
+
+/* Cibler le lien Instagram */
+.instagram-link {
+  display: inline-block; /* Le lien prend uniquement la taille de l'icône */
+  width: auto;  
+  
+    margin-bottom: 25px;
+
+}
+
+/* .instagram-link:hover {
+  background-color: #fff;
+  transform: scale(1.03); 
+} */
+ 
+
 /*adresse du bar en footer*/
-.adresse{
+.txt-footer{
 font-size: 1rem;
   color: #aaa; /* Gris clair pour l'année */
 
-  text-align: center;
-    margin-top: 50px;
+  margin-bottom: 25px;
 }
 
 
@@ -232,6 +263,27 @@ dialog img {
   cursor: pointer;
   z-index: 20;
 }
+/* 
+/*bouton pour enregistrer la photo
+.close-btn,
+.download-btn {
+  position: absolute;
+  top: 20px;
+  color: white;
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #fff;
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 1001;
+} */
 
 /* Adaptations spécifiques pour smartphones (< 768px) */
 @media (max-width: 768px) {
@@ -248,4 +300,36 @@ dialog img {
 
   .prev-btn { left: 8px; }
   .next-btn { right: 8px; }
+}
+
+
+/*bouton pour revenir en haut de la page*/
+/* Rend le défilement fluide sur toute la page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Style du bouton */
+#backToTop {
+  display: none; /* Caché par défaut */
+  position: fixed; /* Reste fixe à l'écran */
+  bottom: 20px;
+  right: 20px;
+  z-index: 99; /* S'affiche au-dessus des autres éléments */
+  border: none;
+  outline: none;
+  background-color: #000000; /* Couleur de fond */
+  color: white; /* Couleur de la flèche */
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 50%; /* Bouton rond */
+  font-size: 18px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Effet au survol */
+#backToTop:hover {
+  background-color: #000000;
+  transform: scale(1.1);
 }

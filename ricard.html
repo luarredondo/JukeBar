@@ -15,11 +15,9 @@
 <body>
 
     <header>
-        <div>
-            <a href="index.html">
-                <img alt="Le JukeBar" src="asset/logo.png">
-            </a>
-        </div>
+        <a href="index.html">
+            <img class="logo-accueil" alt="Le JukeBar" src="asset/logo.png">
+        </a>
     </header>
 
     <main>
@@ -91,7 +89,8 @@
             <div class="lightbox-content">
                 <button id="close-btn" class="close-btn">&times;</button>
                 <button id="prev-btn" class="nav-btn prev-btn">&#10094;</button>
-                
+                <!-- <a id="downloadBtn" href="" download class="download-btn" title="Télécharger la photo">
+    ⬇           </a> -->
                 <img id="lightbox-img" src="" alt="Photo agrandie">
                 
                 <button id="next-btn" class="nav-btn next-btn">&#10095;</button>
@@ -99,16 +98,17 @@
         </dialog>
 
         <footer>
-            <div class="href-footer">
-                <a href="https://www.instagram.com/lejukebar/">
+            <div class="footer-bandeau">
+                <a class="instagram-link" href="https://www.instagram.com/lejukebar/">
                     <img alt="instagram" src="asset/insta.png">
                 </a>
-            </div>
-            <div class="adresse">
-                258 rue de Bourgogne Orléans
-            </div>
-            <div class="adresse">
-                lejukebar
+                <div class="txt-footer">
+                    258 rue de Bourgogne Orléans
+                </div>
+                <div class="txt-footer">
+                    lejukebar copyright
+                </div>
+                <button id="backToTop" title="Retourner en haut">↑</button>
             </div>
         </footer>
     </main>

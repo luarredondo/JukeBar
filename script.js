@@ -66,3 +66,62 @@ document.addEventListener('keydown', (e) => {
     showImage(currentIndex - 1);
   }
 });
+
+
+
+// //bouton pour enregister les photos
+// const downloadBtn = document.getElementById('downloadBtn');
+
+// downloadBtn.addEventListener('click', (event) => {
+//   // Empêche le comportement par défaut de l'ouverture du lien
+//   event.preventDefault();
+
+//   const imageUrl = downloadBtn.href;
+//   const fileName = imageUrl.split('/').pop() || 'photo.jpg';
+
+//   // Récupère l'image et force le téléchargement via un Blob
+//   fetch(imageUrl)
+//     .then(response => response.blob())
+//     .then(blob => {
+//       const blobUrl = window.URL.createObjectURL(blob);
+//       const tempLink = document.createElement('a');
+//       tempLink.href = blobUrl;
+//       tempLink.download = fileName;
+      
+//       document.body.appendChild(tempLink);
+//       tempLink.click();
+//       document.body.removeChild(tempLink);
+      
+//       // Libère la mémoire
+//       window.URL.revokeObjectURL(blobUrl);
+//     })
+//     .catch(() => {
+//       // Si le fetch échoue (ex: problème de sécurité local), ouvre dans un nouvel onglet
+//       window.open(imageUrl, '_blank');
+//     });
+// });
+
+
+//bouton pour revenir en haut de la page
+const backToTopButton = document.getElementById("backToTop");
+
+// Détecte le défilement de la page
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) { // S'affiche après 300px de défilement
+    backToTopButton.style.display = "block";
+  } else {
+    backToTopButton.style.display = "none";
+  }
+});
+
+// Action au clic sur le bouton
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth" // Défilement fluide
+  });
+});
+
+
+
+
