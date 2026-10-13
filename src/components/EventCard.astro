@@ -13,7 +13,11 @@ const { slug, title, date, album } = Astro.props;
 const albumPhotos = (photos as Record<string, { thumb: string; width: number; height: number }[]>)[album] ?? [];
 const cover = albumPhotos[0];
 
-const formattedDate = new Date(date).toLocaleDateString("fr-FR", {
+const dateObj = new Date(date);
+const day = dateObj.getDate();
+const month = dateObj.toLocaleDateString("fr-FR", { month: "short" }).replace(".", "");
+
+const formattedDate = dateObj.toLocaleDateString("fr-FR", {
   day: "numeric",
   month: "long",
   year: "numeric",
@@ -21,9 +25,10 @@ const formattedDate = new Date(date).toLocaleDateString("fr-FR", {
 ---
 
 <a class="event-card" href={`/${slug}`}>
-  <div class="event-card__image">
+  <div class="event-card__frame">
     {cover && (
       <img
+        class="event-card__image"
         src={cover.thumb}
         alt=""
         width={cover.width}
@@ -31,6 +36,10 @@ const formattedDate = new Date(date).toLocaleDateString("fr-FR", {
         loading="lazy"
       />
     )}
+    <span class="event-card__badge" aria-hidden="true">
+      <strong>{day}</strong>
+      <span>{month}</span>
+    </span>
   </div>
   <p class="event-card__title">{title}</p>
   <p class="event-card__date">{formattedDate}</p>
