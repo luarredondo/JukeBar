@@ -1,0 +1,22 @@
+[
+  {
+    "identifiant": "ricard",
+    "titre": "Soirée Ricard",
+    "date": "2026-09-26",
+    "dossierPhotos": "ricard",
+    "photographe": null,
+    "lienPhotographe": null,
+    "description": "Retour en images sur la soirée Ricard au JukeBar.",
+    "afficheMessageAlcool": true
+  },
+  {
+    "identifiant": "anniversaire",
+    "titre": "2 ans du JukeBar",
+    "date": "2026-10-03",
+    "dossierPhotos": "2ans",
+    "photographe": "Thelull",
+    "lienPhotographe": "https://www.instagram.com/thelull/",
+    "description": "Le JukeBar a fêté ses 2 ans ! Retour en images sur la soirée.",
+    "afficheMessageAlcool": false
+  }
+]

@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import EventCard from "../components/EventCard.astro";
+import events from "../data/events.json";
+
+const sortedEvents = [...events].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+---
+
+<Layout
+  title="Le JukeBar – Bar à Orléans | Photos des soirées"
+  description="Le JukeBar, bar à Orléans. Retrouvez les photos de nos soirées et toutes les infos pratiques."
+>
+  <Header />
+  <main id="main">
+    <h1 class="sr-only">Le JukeBar</h1>
+    <p class="hero-tagline">Bar à Orléans</p>
+
+    <section class="practical-info" aria-label="Informations pratiques">
+      <p>258 rue de Bourgogne, Orléans</p>
+      <p>
+        <a href="https://www.instagram.com/lejukebar/">@lejukebar sur Instagram</a>
+      </p>
+    </section>
+
+    <section aria-label="Soirées">
+      <div class="events-grid">
+        {sortedEvents.map((event) => (
+          <EventCard
+            slug={event.identifiant}
+            title={event.titre}
+            date={event.date}
+            album={event.dossierPhotos}
+          />
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
