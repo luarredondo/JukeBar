@@ -1,0 +1,26 @@
+---
+---
+
+<button id="back-to-top" class="back-to-top" aria-label="Remonter en haut" type="button" hidden>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+</button>
+
+<script>
+  const button = document.getElementById("back-to-top") as HTMLButtonElement | null;
+  if (button) {
+    const toggle = () => {
+      const show = window.scrollY > 400;
+      button.hidden = !show;
+    };
+
+    toggle();
+    window.addEventListener("scroll", toggle, { passive: true });
+
+    button.addEventListener("click", () => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  }
+</script>
