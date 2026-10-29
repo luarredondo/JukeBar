@@ -18,16 +18,5 @@
     "lienPhotographe": "https://www.instagram.com/thelull/",
     "description": "Le JukeBar a fêté ses 2 ans ! Retour en images sur la soirée.",
     "afficheMessageAlcool": false
-  },
-
-  {
-    "identifiant": "test",
-    "titre": "test",
-    "date": "2026-10-03",
-    "dossierPhotos": "2ans",
-    "photographe": "test",
-    "lienPhotographe": "https://www.instagram.com/thelull/",
-    "description": "Le JukeBar a fêté ses 2 ans ! Retour en images sur la soirée.",
-    "afficheMessageAlcool": false
   }
 ]
