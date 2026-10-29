@@ -27,12 +27,14 @@ body {
 html {
   scroll-behavior: smooth;
   background-color: var(--bg);
+  overflow-x: hidden;
 }
 
 body {
   font-family: "Manrope", system-ui, sans-serif;
   color: var(--text);
   position: relative;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -138,35 +140,31 @@ main {
 h1 {
   text-align: center;
   font-family: "League Spartan", sans-serif;
-  font-weight: 900;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   font-size: clamp(2.4rem, 8vw, 3.8rem);
-  line-height: 1.1;
+  line-height: 1.15;
   margin: 0 0 1.25rem;
-  background: linear-gradient(110deg, var(--neon-cyan), var(--neon-magenta));
-  background-clip: text;
-  -webkit-background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 0 10px rgba(63, 212, 255, 0.4))
-    drop-shadow(0 0 18px rgba(255, 63, 194, 0.3));
+  -webkit-text-stroke: 1.5px var(--neon-cyan);
+  filter: drop-shadow(0 0 4px var(--neon-cyan)) drop-shadow(0 0 12px var(--neon-magenta))
+    drop-shadow(0 0 22px rgba(255, 63, 194, 0.5));
 }
 
 .hero-tagline {
   text-align: center;
   font-family: "League Spartan", sans-serif;
-  font-weight: 900;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   font-size: clamp(1.6rem, 5vw, 2.4rem);
   line-height: 1.2;
   margin: 0 0 1.25rem;
-  background: linear-gradient(110deg, var(--neon-cyan), var(--neon-magenta));
-  background-clip: text;
-  -webkit-background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 0 10px rgba(63, 212, 255, 0.4))
-    drop-shadow(0 0 18px rgba(255, 63, 194, 0.3));
+  -webkit-text-stroke: 1.2px var(--neon-cyan);
+  filter: drop-shadow(0 0 4px var(--neon-cyan)) drop-shadow(0 0 12px var(--neon-magenta))
+    drop-shadow(0 0 22px rgba(255, 63, 194, 0.5));
 }
 
 .practical-info {
@@ -192,7 +190,7 @@ h1 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.25rem;
-  max-width: 1100px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -216,7 +214,7 @@ h1 {
 }
 
 .event-card__image {
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 12px;
   margin-bottom: 0.9rem;
