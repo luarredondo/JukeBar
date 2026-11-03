@@ -17,6 +17,17 @@
     "photographe": "Thelull",
     "lienPhotographe": "https://www.instagram.com/thelull/",
     "description": "Le JukeBar a fêté ses 2 ans ! Retour en images sur la soirée.",
+    "afficheMessageAlcool": true
+  },
+
+  {
+    "identifiant": "halloween",
+    "titre": "Halloween",
+    "date": "2026-10-31",
+    "dossierPhotos": "halloween_2026",
+    "photographe": null,
+    "lienPhotographe": null,
+    "description": "La Bête est passée par là et les monstres étaient de sortie au JukeBar",
     "afficheMessageAlcool": false
   }
 ]
