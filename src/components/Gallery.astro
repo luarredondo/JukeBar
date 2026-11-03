@@ -1,0 +1,79 @@
+---
+interface Photo {
+  id: string;
+  thumb: string;
+  hd: string;
+  width: number;
+  height: number;
+}
+
+interface Props {
+  photos: Photo[];
+  eventTitle: string;
+}
+
+const { photos, eventTitle } = Astro.props;
+---
+
+<div class="pswp-gallery" id="gallery">
+  {photos.map((photo, index) => (
+    <a
+      href={photo.hd}
+      data-pswp-width={photo.width}
+      data-pswp-height={photo.height}
+      data-download-url={photo.hd}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <img
+        src={photo.thumb}
+        alt={`Photo ${index + 1} sur ${photos.length}, ${eventTitle}`}
+        width={photo.width}
+        height={photo.height}
+        loading="lazy"
+      />
+    </a>
+  ))}
+</div>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "photoswipe/style.css";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#gallery",
+    children: "a",
+    pswpModule: () => import("photoswipe"),
+    closeTitle: "Fermer",
+    zoomTitle: "Zoomer",
+    arrowPrevTitle: "Photo précédente",
+    arrowNextTitle: "Photo suivante",
+    errorMsg: "La photo n'a pas pu être chargée",
+  });
+
+  lightbox.on("uiRegister", () => {
+    lightbox.pswp?.ui?.registerElement({
+      name: "download-button",
+      ariaLabel: "Télécharger la photo",
+      order: 8,
+      isButton: true,
+      tagName: "a",
+      html: {
+        isCustomSVG: true,
+        inner:
+          '<path d="M20.5 14.2v5.3c0 .5-.4 1-1 1h-15c-.5 0-1-.4-1-1v-5.3M15.5 10.7 12 14.2l-3.5-3.5M12 3.8v10.4" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+        outlineID: "pswp__icn-download",
+      },
+      onInit: (el, pswp) => {
+        el.setAttribute("target", "_blank");
+        el.setAttribute("rel", "noreferrer");
+        pswp.on("change", () => {
+          const url = pswp.currSlide?.data?.element?.dataset.downloadUrl;
+          if (url) (el as HTMLAnchorElement).href = url;
+        });
+      },
+    });
+  });
+
+  lightbox.init();
+</script>

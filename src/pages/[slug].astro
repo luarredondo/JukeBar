@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Gallery from "../components/Gallery.astro";
+import events from "../data/events.json";
+import photos from "../data/photos.json";
+
+export function getStaticPaths() {
+  return events.map((event) => ({
+    params: { slug: event.identifiant },
+    props: { event },
+  }));
+}
+
+const { event } = Astro.props;
+const albumPhotos = (photos as Record<string, any[]>)[event.dossierPhotos] ?? [];
+
+const formattedDate = new Date(event.date).toLocaleDateString("fr-FR", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
+const cover = albumPhotos[0];
+---
+
+<Layout
+  title={`${event.titre} – Le JukeBar`}
+  description={event.description}
+  ogImage={cover?.hd}
+>
+  <Header />
+  <main id="main">
+    <nav class="breadcrumb"><a href="/">&larr; Toutes les soirées</a></nav>
+    <h1>{event.titre}</h1>
+    <p class="event-date">{formattedDate}</p>
+    {event.photographe && (
+      <p class="photo-credit">
+        Photos :{" "}
+        {event.lienPhotographe ? (
+          <a href={event.lienPhotographe}>{event.photographe}</a>
+        ) : (
+          event.photographe
+        )}
+      </p>
+    )}
+
+    {event.afficheMessageAlcool && (
+      <p class="health-notice">
+        L'abus d'alcool est dangereux pour la santé, à consommer avec modération.
+      </p>
+    )}
+
+    <Gallery photos={albumPhotos} eventTitle={event.titre} />
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,37 @@
+---
+import photos from "../data/photos.json";
+
+interface Props {
+  slug: string;
+  title: string;
+  date: string;
+  album: string;
+}
+
+const { slug, title, date, album } = Astro.props;
+
+const albumPhotos = (photos as Record<string, { thumb: string; width: number; height: number }[]>)[album] ?? [];
+const cover = albumPhotos[0];
+
+const formattedDate = new Date(date).toLocaleDateString("fr-FR", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+---
+
+<a class="event-card" href={`/${slug}`}>
+  <div class="event-card__image">
+    {cover && (
+      <img
+        src={cover.thumb}
+        alt=""
+        width={cover.width}
+        height={cover.height}
+        loading="lazy"
+      />
+    )}
+  </div>
+  <p class="event-card__title">{title}</p>
+  <p class="event-card__date">{formattedDate}</p>
+</a>

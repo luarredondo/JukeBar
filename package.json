@@ -1,0 +1,20 @@
+{
+  "name": "jukebar",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "images": "node scripts/generate-images.mjs",
+    "dev": "astro dev",
+    "build": "node scripts/generate-images.mjs && astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "astro": "^7.3.8",
+    "photoswipe": "^5.4.4"
+  }
+}
